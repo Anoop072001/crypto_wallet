@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Addview extends StatefulWidget {
   @override
@@ -14,6 +15,7 @@ class _AddviewState extends State<Addview> {
   Widget build(BuildContext context) {
     return Material(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           DropdownButton(
             value: dropdownValue,
@@ -27,7 +29,7 @@ class _AddviewState extends State<Addview> {
                 value: value,
                 child: Text(value),
               );
-            }),
+            }).toList(),
           ),
           Container(
             width: MediaQuery.of(context).size.width / 1.3,
@@ -36,6 +38,22 @@ class _AddviewState extends State<Addview> {
               decoration: InputDecoration(
                 labelText: "Coin Amount",
               ),
+              keyboardType: TextInputType.text,
+            ),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width / 1.4,
+            height: 45,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15.0),
+              color: Colors.white,
+            ),
+            child: MaterialButton(
+              onPressed: () async {
+                //Todo
+                Navigator.of(context).pop();
+              },
+              child: Text("Add"),
             ),
           ),
         ],
